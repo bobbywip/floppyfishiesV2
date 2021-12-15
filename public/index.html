@@ -40,13 +40,13 @@
 	function preload ()
 	{
 		this.load.image('background', 'assets/BG.png');
-		this.load.image('ground', 'assets/TestTile.png');
+		this.load.image('ground', 'assets/Tiles/Tile (2).png');
 	}
 
 	// initial setup
 	function create ()
 	{
-		this.add.image(400, 300, 'background').setScale(0.55  );
+		this.add.image(400, 300, 'background').setScale(0.55);
 		platforms = this.physics.add.staticGroup();
 		platforms.create(600, 400, 'ground');
 	}
