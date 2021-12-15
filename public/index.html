@@ -63,7 +63,7 @@
 		platforms.create(600, 400, 'ground').setScale(0.5).refreshBody();
 		platforms.create(665, 400, 'ground').setScale(0.5).refreshBody();
 		
-		player = this.physics.add.sprite(100, 450, 'player');
+		player = this.physics.add.sprite(100, 450, 'player').setScale(0.25).refreshBody()
 	}
 
 	// 60 frames per second
