@@ -40,7 +40,7 @@
     		}
 	};
 
-	var game = new Phaser.Game(config);
+	var game;
 	var platforms;
 	var player;
 	    
@@ -119,6 +119,19 @@
         console.log("logged in user:", user);
       }
 
+      (function launch(){
+	  let user = Moralis.User.current();
+          if (!user) {
+          	user = await Moralis.Web3.authenticate();
+          	console.log("LOG IN WITH METAMASK") 
+          }
+	  else {
+		console.log(user.get("ethAddress") + " " + "logged in");
+		game = new Phaser.Game(config);
+	  }
+	   
+      })()
+	    
       async function logOut() {
         await Moralis.User.logOut();
         console.log("logged out");
