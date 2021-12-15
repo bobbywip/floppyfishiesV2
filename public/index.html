@@ -66,6 +66,8 @@
 		player = this.physics.add.sprite(500, 300, 'player').setScale(0.1).refreshBody()
 		player.setBounce(0.2);
 		player.setCollideWorldBounds(true);
+		this.physics.add.collider(player, platforms);
+
 	}
 
 	// 60 frames per second
