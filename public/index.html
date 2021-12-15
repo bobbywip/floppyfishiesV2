@@ -168,10 +168,6 @@
             player.setVelocityX(0);
         }
 
-        if (cursors.up.isDown && player.body.touching.down)
-        {
-            player.setVelocityY(jumpHeight);
-        }
 
         if(player.lastX!=player.x  || player.lastY!=player.y){
           let user = Moralis.User.current();
