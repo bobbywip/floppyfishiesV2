@@ -66,7 +66,6 @@
 		player = this.physics.add.sprite(500, 300, 'player').setScale(0.1).refreshBody()
 		player.setBounce(0.2);
 		player.setCollideWorldBounds(true);
-		player.anchor.setTo(0.5,0.5);
 		this.physics.add.collider(player, platforms);
 		
 		cursors = this.input.keyboard.createCursorKeys();
