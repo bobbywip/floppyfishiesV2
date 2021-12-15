@@ -41,7 +41,7 @@
           }
       };
 
-      var game;
+      var game = game = new Phaser.Game(config);
 
       var platforms;
 
@@ -53,19 +53,7 @@
       
       var that;
 
-      function launch(){
-        let user = Moralis.User.current();
-        if (!user) {
-          console.log("PLEASE LOG IN WITH METAMASK!!")
-        }
-        else{
-          console.log(user.get("ethAddress") + " " + "logged in")
-          game = new Phaser.Game(config);
-        }
 
-      }
-
-      launch();
 
 
       // loading assets
