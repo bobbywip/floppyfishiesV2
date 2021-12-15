@@ -44,6 +44,20 @@
 	var platforms;
 	var player;
 	    
+	    
+	function launch(){
+        	let user = Moralis.User.current();
+        	if (!user) {
+          	console.log("PLEASE LOG IN WITH METAMASK!!")
+        	}
+        	else{
+          	console.log(user.get("ethAddress") + " " + "logged in")
+          	game = new Phaser.Game(config);
+        	}
+
+       }
+
+      launch();
 	// loading assets
 	function preload ()
 	{
@@ -118,19 +132,6 @@
         }
         console.log("logged in user:", user);
       }
-
-      (function launch(){
-	  let user = Moralis.User.current();
-          if (!user) {
-          	user = await Moralis.Web3.authenticate();
-          	console.log("LOG IN WITH METAMASK") 
-          }
-	  else {
-		console.log(user.get("ethAddress") + " " + "logged in");
-		game = new Phaser.Game(config);
-	  }
-	   
-      })()
 	    
       async function logOut() {
         await Moralis.User.logOut();
