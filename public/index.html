@@ -29,7 +29,7 @@
 	physics: {
 		default: 'arcade',
 		arcade: {
-			gravity: { y: 5 },
+			gravity: { y: 80 },
 			debug: true
 		}
 	},
@@ -97,10 +97,19 @@
 			    player.anims.play('turn');
 			}
 
-		if (cursors.up.isDown && player.body.touching.down)
+		if (cursors.up.isDown)
 			{
-			    player.setVelocityY(-330);
+			    player.setVelocityY(-250);
 			}
+		else if (cursors.down.isDown)
+			{
+			    player.setVelocityY(250)
+			}
+		else
+			{
+			    player.setVelocityY(0);
+			}
+			
 	}
 
 
