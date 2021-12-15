@@ -1,8 +1,8 @@
 <html>
   <head>
-    <title>Vanilla Boilerplate</title>
+    <title>FloppyFishies.io by oceanverse.eth</title>
 
-	  <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
     <script src="https://npmcdn.com/moralis@latest/dist/moralis.js"></script>
     <script src="//cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
 
@@ -42,23 +42,28 @@
 
 	var game = new Phaser.Game(config);
 	var platforms;
+	var player;
 	    
 	// loading assets
 	function preload ()
 	{
 		this.load.image('background', 'assets/BG.png');
 		this.load.image('ground', 'assets/Tiles/Tile (2).png');
+		this.load.image('player', 'assets/player.png');
 	}
 
 	// initial setup
 	function create ()
 	{
 		this.add.image(400, 300, 'background').setScale(0.55);
+		
 		platforms = this.physics.add.staticGroup();
 		platforms.create(470, 400, 'ground').setScale(0.5).refreshBody();
 		platforms.create(535, 400, 'ground').setScale(0.5).refreshBody();
 		platforms.create(600, 400, 'ground').setScale(0.5).refreshBody();
 		platforms.create(665, 400, 'ground').setScale(0.5).refreshBody();
+		
+		player = this.physics.add.sprite(100, 450, 'player');
 	}
 
 	// 60 frames per second
