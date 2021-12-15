@@ -30,7 +30,7 @@
           physics: {
               default: 'arcade',
               arcade: {
-                  gravity: { y: 300 },
+                  gravity: { y: 130 },
                   debug: false
               }
           },
@@ -50,7 +50,7 @@
 
       var cursor;
 
-      var jumpHeight = -300;
+      
       var that;
 
       function launch(){
@@ -98,9 +98,10 @@
       }
 
       async function initPlayer(){
-        player = that.physics.add.sprite(500, 250, 'player').setScale(0.3).refreshBody();
-        player.setBounce(0.3);
+        player = that.physics.add.sprite(500, 300, 'player').setScale(0.075).refreshBody();
+        player.setBounce(0.1);
         that.physics.add.collider(player, platforms);
+	player.setCollideWorldBounds(true);
       }
 
       // initial setup
@@ -115,10 +116,7 @@
         platforms.create(600, 400, 'ground').setScale(0.5).refreshBody();
         platforms.create(665, 400, 'ground').setScale(0.5).refreshBody();
 
-	      
-	player = this.physics.add.sprite(500, 300, 'player').setScale(0.075).refreshBody()
-	player.setBounce(0.1);
-	player.setCollideWorldBounds(true);
+	
 	this.physics.add.collider(player, platforms);
 
         cursors = this.input.keyboard.createCursorKeys();
