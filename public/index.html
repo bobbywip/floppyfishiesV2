@@ -6,37 +6,64 @@
 	  
 	  
 	<style>
-		body  {
-  			background-image: url("paper.gif");
-  			background-color: #0099ff;
-			}
 		.button {
-			    margin: auto;
-    			    border: 0;
-    			    line-height: 2.5;
-			    padding: 0 20px;
-			    font-size: 20px;
-			    text-align: center;
-			    color: white;
-			    text-shadow: 1px 1px 1px #000;
-			    border-radius: 10px;
-			    background-color: rgba(0, 200, 200, 1);
-			    background-image: linear-gradient(to top left,
-							      rgba(0, 0, 0, .2),
-							      rgba(0, 0, 0, .2) 30%,
-							      rgba(0, 0, 0, 0));
-			    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
-					inset -2px -2px 3px rgba(0, 0, 0, .6);
-			}
+		  align-items: center;
+		  background-color: #fee6e3;
+		  border: 2px solid #111;
+		  border-radius: 8px;
+		  box-sizing: border-box;
+		  color: #111;
+		  cursor: pointer;
+		  display: flex;
+		  left: 30%;
+		  font-family: Inter,sans-serif;
+		  font-size: 16px;
+		  height: 48px;
+		  justify-content: center;
+		  line-height: 24px;
+		  max-width: 100%;
+		  padding: 0 25px;
+		  position: relative;
+		  text-align: center;
+		  text-decoration: none;
+		  user-select: none;
+		  -webkit-user-select: none;
+		  touch-action: manipulation;
+		}
 
-			.button:hover {
-			    background-color: rgba(0, 150, 200, 1);
-			}
+		.button:after {
+		  background-color: #111;
+		  border-radius: 8px;
+		  content: "";
+		  display: block;
+		  height: 48px;
+		  left: 0;
+		  width: 100%;
+		  position: absolute;
+		  top: -2px;
+		  transform: translate(8px, 8px);
+		  transition: transform .2s ease-out;
+		  z-index: -1;
+		}
 
-			.button:active {
-			    box-shadow: inset -2px -2px 3px rgba(0, 120, 200, .6),
-					inset 2px 2px 3px rgba(0, 0, 0, .6);
-			}
+		.button:hover:after {
+		  transform: translate(0, 0);
+		}
+
+		.button:active {
+		  background-color: #ffdeda;
+		  outline: 0;
+		}
+
+		.button-:hover {
+		  outline: 0;
+		}
+
+		@media (min-width: 768px) {
+		  .button- {
+		    padding: 0 40px;
+		  }
+		}
 	</style>
     <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
     <script src="https://npmcdn.com/moralis@latest/dist/moralis.js"></script>
