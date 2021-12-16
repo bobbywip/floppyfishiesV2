@@ -281,7 +281,21 @@
 
 	      
 	
-	      
+        this.w = this.cameras.main.width;
+        this.h = this.cameras.main.height;
+    
+        var bg = this.add.group({ key: 'star', frameQuantity: 300 });
+    
+        this.sky = new Phaser.Display.Color(120, 120, 255);
+        this.space = new Phaser.Display.Color(0, 0, 0);
+    
+        
+    
+        this.cameras.main.startFollow(player);
+    
+        var rect = new Phaser.Geom.Rectangle(0, -2 * this.h, this.w, 2 * this.h);
+    
+        Phaser.Actions.RandomRectangle(bg.getChildren(), rect);	      
 	      
 	      
       
@@ -293,20 +307,6 @@
 	player.setCollideWorldBounds(true);
 	this.physics.add.collider(player, platforms);
         cursors = this.input.keyboard.createCursorKeys();
-
-	this.data.set('Level', 0);      
-        this.data.set('Room', 0);
-        this.data.set('Points', 0);
-	this.data.set('Health', 100);
-	      
-        var text = this.add.text(100, 100, '', { font: '64px Courier', fill: '#00ff00' });
-
-        text.setText([
-	    'Level: ' + this.data.get('Level'),
-            'Room: ' + this.data.get('Room'),
-            'Points: ' + this.data.get('Points'),
-	    'Health: ' + this.data.get('Health'),
-        ]);      
 
         let user = Moralis.User.current();
         let query = new Moralis.Query('PlayerPosition');
@@ -337,6 +337,11 @@
       // 60 times per second  - 60 frames per second
       async function update ()
       {
+	this.player.y = (Math.cos(this.time.now / 1000) * (this.h - 10)) - this.h;
+
+        var hexColor = Phaser.Display.Color.Interpolate.ColorWithColor(this.sky, this.space, -this.h * 2, this.player.y);
+    
+        this.cameras.main.setBackgroundColor(hexColor);      
 	game.scale.pageAlignHorizontally = true;
 	game.scale.pageAlignVertically = true;
 	game.scale.refresh();      
