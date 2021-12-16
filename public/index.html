@@ -30,7 +30,7 @@
           physics: {
               default: 'arcade',
               arcade: {
-                  gravity: { y: 90 },
+                  gravity: { y: 120 },
                   debug: false
               }
           },
@@ -158,17 +158,17 @@
         // LOGIC
         if (cursors.left.isDown)
         {
-            player.setVelocityX(-70);
+            player.setVelocityX(-60);
 	    player.flipX = true;
         }
         else if (cursors.right.isDown)
         {
-            player.setVelocityX(70);
+            player.setVelocityX(60);
 	    player.flipX = false;
         }
         else
         {
-            player.setVelocityY(0);
+            player.setVelocityX(0);
         }
 
         if (cursors.up.isDown)
