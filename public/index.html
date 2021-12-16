@@ -284,7 +284,7 @@
         this.w = this.cameras.main.width;
         this.h = this.cameras.main.height;
     
-        var bg = this.add.group({ key: 'star', frameQuantity: 300 });
+       
     
         this.sky = new Phaser.Display.Color(120, 120, 255);
         this.space = new Phaser.Display.Color(0, 0, 0);
@@ -337,11 +337,7 @@
       // 60 times per second  - 60 frames per second
       async function update ()
       {
-	this.player.y = (Math.cos(this.time.now / 1000) * (this.h - 10)) - this.h;
-
-        var hexColor = Phaser.Display.Color.Interpolate.ColorWithColor(this.sky, this.space, -this.h * 2, this.player.y);
     
-        this.cameras.main.setBackgroundColor(hexColor);      
 	game.scale.pageAlignHorizontally = true;
 	game.scale.pageAlignVertically = true;
 	game.scale.refresh();      
