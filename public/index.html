@@ -169,7 +169,7 @@
       
  
 	platforms.create(630, 470, 'Rock11').setScale(2).refreshBody();      
-	player = that.physics.add.sprite(500, 300, 'player').setScale(1).refreshBody();
+	player = that.physics.add.sprite(500, 300, 'player').setScale(2).refreshBody();
         player.setBounce(0);
         that.physics.add.collider(player, platforms);
 	player.setCollideWorldBounds(true);
