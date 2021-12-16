@@ -199,7 +199,7 @@
 
       var player;
       var competitors = {};
-      var button;
+      var upbutton;
       var cursor;
 
       var that;
@@ -239,8 +239,7 @@
 	this.load.image('SeaWeed', 'assets/Custom/SeaWeed.png');
 	this.load.image('SeaWeed2', 'assets/Custom/SeaWeed2.png');
         this.load.image('comptetitor', 'assets/player.png');
-	      
-	game.load.spritesheet('button', 'Metamask2.png', 193, 71);
+	     
 
         // fetch player SVG
         const numericTraits = [1, 99, 99, 99, 1, 1]; // UI to change the traits
@@ -298,13 +297,6 @@
 
 	      
 	      
-	      
-	      
-	button = game.add.button(game.world.centerX - 95, 400, 'button', actionOnClick, this, 2, 1, 0);
-
-	button.onInputOver.add(over, this);
-	button.onInputOut.add(out, this);
-	button.onInputUp.add(up, this);      
 
         let user = Moralis.User.current();
         let query = new Moralis.Query('PlayerPosition');
@@ -383,11 +375,7 @@
 
 
       }
-	function actionOnClick () {
 
-	    console.log("Button clicked");
-
-	}
 
       // add from here down
       async function login() {
