@@ -264,6 +264,7 @@
         player.setBounce(0);
         that.physics.add.collider(player, platforms);
 	player.setCollideWorldBounds(true);
+	this.cameras.main.startFollow(player);
       }
 
       // initial setup
@@ -283,16 +284,12 @@
     
         
     
-        this.cameras.main.startFollow(player);
+        
 
 	      
       
  
 	platforms.create(630, 470, 'Rock11').setScale(1).refreshBody();      
-	player = that.physics.add.sprite(500, 300, 'player').setScale(0.1).refreshBody();
-        player.setBounce(0);
-        that.physics.add.collider(player, platforms);
-	player.setCollideWorldBounds(true);
 	this.physics.add.collider(player, platforms);
         cursors = this.input.keyboard.createCursorKeys();
 
