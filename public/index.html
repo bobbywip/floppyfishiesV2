@@ -300,8 +300,7 @@
         let user = Moralis.User.current();
         let query = new Moralis.Query('PlayerPosition');
         let subscription = await query.subscribe();
-	let query2 = new Moralis.Query('PlayerAcive');
-        let subscription2 = await query2.subscribe();
+
         subscription.on('create', (plocation) => {
           if(plocation.get("player") != user.get("ethAddress")){
 
@@ -365,11 +364,6 @@
           const PlayerPosition = Moralis.Object.extend("PlayerPosition");
           const playerPosition = new PlayerPosition();
 		
-	  const PlayerActive = Moralis.Object.extend("PlayerActive");
-	  const PlayerActive = new PlayerActive();
-	
-	  PlayerActive.set("Player",user.get("ethAddress"));	
-	  PlayerActive.set("Active","True");
 
           playerPosition.set("player",user.get("ethAddress"));
           playerPosition.set("x",player.x);
