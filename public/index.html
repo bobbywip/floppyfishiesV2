@@ -9,9 +9,14 @@
 		body  {
   		  background-image: url("paper.gif");
   		  background-color: #0099ff;
-		}	
+		}
+		.img {
+			left:30%;
+			position: relative;
+			align-items: start;
+		}
 		.button {
-		  align-items: center;
+		  align-items: start;
 		  background-color: #ccffff;
 		  border: 2px solid #111;
 		  border-radius: 8px;
@@ -77,7 +82,7 @@
   </head>
 
   <body>
-    <img src="metamask.png" alt="HTML5 Icon" style="width:48px;height:48px;">	  
+    <img src="metamask.png" class="img" alt="HTML5 Icon" style="width:48px;height:48px;">	  
     <button class="button button1" id="btn-login">Metamask Login</button>
     <button class="button button1" id="btn-logout">Logout</button>
 
