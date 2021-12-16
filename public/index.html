@@ -71,8 +71,12 @@
       async function preload ()
       {
         that = this;
-        this.load.image('background', 'assets/BG.png');
-        this.load.image('ground', 'assets/Tiles/Tile (2).png');
+        this.load.image('background', 'assets/Custom/BG.png');
+        this.load.image('Rock1', 'assets/Custom/Rock1.png');
+	this.load.image('Rock2', 'assets/Custom/Rock2.png');
+	this.load.image('Rock3', 'assets/Custom/Rock3.png');
+	this.load.image('SeaWeed', 'assets/Custom/SeaWeed.png');
+	this.load.image('SeaWeed2', 'assets/Custom/SeaWeed2.png');
 	this.load.image('player', 'assets/player.png');
         this.load.image('comptetitor', 'assets/player.png');
 
@@ -110,10 +114,11 @@
 
         platforms = this.physics.add.staticGroup();
 
-        platforms.create(470, 400, 'ground').setScale(0.5).refreshBody();
-        platforms.create(535, 400, 'ground').setScale(0.5).refreshBody();
-        platforms.create(600, 400, 'ground').setScale(0.5).refreshBody();
-        platforms.create(665, 400, 'ground').setScale(0.5).refreshBody();
+        platforms.create(470, 400, 'Rock3').setScale(1).refreshBody();
+        platforms.create(535, 400, 'Rock2').setScale(1).refreshBody();
+        platforms.create(600, 400, 'Rock2').setScale(1).refreshBody();
+	platforms.create(600, 424, 'SeaWeed').setScale(1).refreshBody();
+        platforms.create(665, 400, 'Rock1').setScale(1).refreshBody();
 
 	      
 	player = that.physics.add.sprite(500, 300, 'player').setScale(0.1).refreshBody();
