@@ -87,7 +87,7 @@
         const svgBlob = new Blob([rawSVG], {type:"image/svg+xml;charset=utf-8"})
         const url = URL.createObjectURL(svgBlob)
 
-        //this.load.image('player',url);
+        this.load.image('player',url);
 
         this.load.on('filecomplete', function(){
 
@@ -116,7 +116,11 @@
         platforms.create(600, 400, 'ground').setScale(0.5).refreshBody();
         platforms.create(665, 400, 'ground').setScale(0.5).refreshBody();
 
-
+	      
+	player = that.physics.add.sprite(500, 300, 'player').setScale(0.075).refreshBody();
+        player.setBounce(0.1);
+        that.physics.add.collider(player, platforms);
+	player.setCollideWorldBounds(true);
 	this.physics.add.collider(player, platforms);
         cursors = this.input.keyboard.createCursorKeys();
 
@@ -130,7 +134,7 @@
             // if first time seeing
             if(competitors[plocation.get("player")] == undefined){
               // create a sprite
-              competitors[plocation.get("player")] = this.add.image( plocation.get("x"), plocation.get("y"), 'comptetitor').setScale(0.3);
+              competitors[plocation.get("player")] = this.add.image( plocation.get("x"), plocation.get("y"), 'comptetitor').setScale(0.075);
             }
             else{
               competitors[plocation.get("player")].x = plocation.get("x");
