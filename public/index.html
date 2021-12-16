@@ -59,7 +59,6 @@
           type: Phaser.AUTO,
           width: 640,
           height: 480,
-	  margin: auto,
           physics: {
               default: 'arcade',
               arcade: {
@@ -200,6 +199,9 @@
       // 60 times per second  - 60 frames per second
       async function update ()
       {
+	game.scale.pageAlignHorizontally = true;
+	game.scale.pageAlignVertically = true;
+	game.scale.refresh();      
         if(!player)
           return;
 
