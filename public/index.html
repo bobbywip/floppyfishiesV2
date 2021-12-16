@@ -145,7 +145,7 @@
       }
 
       async function initPlayer(){
-        player = that.physics.add.sprite(500, 300, 'player').setScale(0.05).refreshBody();
+        player = that.physics.add.sprite(500, 300, 'player').setScale(0.1).refreshBody();
         player.setBounce(0);
         that.physics.add.collider(player, platforms);
 	player.setCollideWorldBounds(true);
@@ -157,10 +157,7 @@
         this.add.image(400, 300, 'background').setScale(5);
 
         platforms = this.physics.add.staticGroup();
-        player = that.physics.add.sprite(500, 300, 'player').setScale(0.05).refreshBody();
-        player.setBounce(0);
-        that.physics.add.collider(player, platforms);
-	player.setCollideWorldBounds(true);
+
         platforms.create(472, 400, 'Rock3').setScale(1).refreshBody();
         platforms.create(448, 400, 'Rock2').setScale(1).refreshBody();
         platforms.create(424, 400, 'Rock2').setScale(1).refreshBody();
@@ -170,22 +167,26 @@
 	      
 	
       
- 	platforms.create(630, 470, 'Rock11').setScale(1).refreshBody(); 
+ 
 	platforms.create(630, 470, 'Rock11').setScale(1).refreshBody();      
-
+	player = that.physics.add.sprite(500, 300, 'player').setScale(0.1).refreshBody();
+        player.setBounce(0);
+        that.physics.add.collider(player, platforms);
+	player.setCollideWorldBounds(true);
+	this.physics.add.collider(player, platforms);
         cursors = this.input.keyboard.createCursorKeys();
 
 
         let user = Moralis.User.current();
         let query = new Moralis.Query('PlayerPosition');
         let subscription = await query.subscribe();
-        subscription.on('create', (plocation) => {+
+        subscription.on('create', (plocation) => {
           if(plocation.get("player") != user.get("ethAddress")){
 
             // if first time seeing
             if(competitors[plocation.get("player")] == undefined){
               // create a sprite
-              competitors[plocation.get("player")] = this.add.image( plocation.get("x"), plocation.get("y"), 'comptetitor').setScale(0.05);
+              competitors[plocation.get("player")] = this.add.image( plocation.get("x"), plocation.get("y"), 'comptetitor').setScale(0.1);
             }
             else{
               competitors[plocation.get("player")].x = plocation.get("x");
