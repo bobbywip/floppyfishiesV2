@@ -1,294 +1,42 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <title>Floppy Fishies by oceanverse.eth</title>
+    <meta charset="utf-8" />
+    <base href="/" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="stylesheet" href="%PUBLIC_URL%/config/theme.css" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
 
-	  
-	  
-	  
-	<style>
-		body  {
-  			background-image: url("paper.gif");
-  			background-color: #0099ff;
-			}
-		.button {
-			    margin: auto;
-    			    border: 0;
-    			    line-height: 2.5;
-			    padding: 0 20px;
-			    font-size: 20px;
-			    text-align: center;
-			    color: white;
-			    text-shadow: 1px 1px 1px #000;
-			    border-radius: 10px;
-			    background-color: rgba(0, 200, 200, 1);
-			    background-image: linear-gradient(to top left,
-							      rgba(0, 0, 0, .2),
-							      rgba(0, 0, 0, .2) 30%,
-							      rgba(0, 0, 0, 0));
-			    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
-					inset -2px -2px 3px rgba(0, 0, 0, .6);
-			}
-
-			.button:hover {
-			    background-color: rgba(0, 150, 200, 1);
-			}
-
-			.button:active {
-			    box-shadow: inset -2px -2px 3px rgba(0, 120, 200, .6),
-					inset 2px 2px 3px rgba(0, 0, 0, .6);
-			}		
-	</style>
-    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
-    <script src="https://npmcdn.com/moralis@latest/dist/moralis.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
-
-
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>REU EARTH DAO</title>
+    <meta name="description" content="Each REU NFT is 0.20 % Voting Power in the REU EARTH DAO" />
   </head>
-
   <body>
-	  
-    <button class="button button1" id="btn-login">Metamask Login</button>
-    <button class="button button1" id="btn-logout">Logout</button>
-    <br><br>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
 
-    <script>
-      // connect to Moralis server
-      Moralis.initialize("4SJbqJrqj31Vy4zgP6qTXSQZM4EKpUn6CqreX6Xi");
-      Moralis.serverURL = "https://irgjvyx5h7jg.usemoralis.com:2053/server";
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
 
-
-
-
-      var config = {
-          type: Phaser.AUTO,
-          width: 640,
-          height: 480,
-          physics: {
-              default: 'arcade',
-              arcade: {
-                  gravity: { y: 70 },
-                  debug: true
-              }
-          },
-          scene: {
-              preload: preload,
-              create: create,
-              update: update
-          },
-	  scale: {
-              autoCenter: Phaser.Scale.CENTER_HORIZONTALLY,
-    	  }
-      };
-
-      var game;
-
-      var platforms;
-
-      var player;
-      var competitors = {};
-
-      var cursor;
-
-      var that;
-
-      function launch(){
-        let user = Moralis.User.current();
-        if (!user) {
-          console.log("PLEASE LOG IN WITH METAMASK!!")
-        }
-        else{
-          console.log(user.get("ethAddress") + " " + "logged in")
-          game = new Phaser.Game(config);
-        }
-
-      }
-
-      launch();
-
-
-      // loading assets
-      async function preload ()
-      {
-        that = this;
-        this.load.image('background', 'assets/Custom/BG.png');
-        this.load.image('Rock1', 'assets/Custom/Rock1.png');
-	this.load.image('Rock2', 'assets/Custom/Rock2.png');
-	this.load.image('Rock3', 'assets/Custom/Rock3.png');
-	this.load.image('Rock4', 'assets/Custom/Rock3.png');
-	this.load.image('Rock5', 'assets/Custom/Rock3.png');
-	this.load.image('Rock6', 'assets/Custom/Rock3.png');
-	this.load.image('Rock7', 'assets/Custom/Rock3.png');
-	this.load.image('Rock8', 'assets/Custom/Rock3.png');
-	this.load.image('Rock9', 'assets/Custom/Rock3.png');
-	this.load.image('Rock10', 'assets/Custom/Rock3.png');
-	this.load.image('Rock11', 'assets/Custom/Rock3.png');
-	this.load.image('Rock12', 'assets/Custom/Rock3.png');
-	this.load.image('SeaWeed', 'assets/Custom/SeaWeed.png');
-	this.load.image('SeaWeed2', 'assets/Custom/SeaWeed2.png');
-        this.load.image('comptetitor', 'assets/player.png');
-
-
-        // fetch player SVG
-        const numericTraits = [1, 99, 99, 99, 1, 1]; // UI to change the traits
-        const equippedWearables = [23,6,2,43,0,4,0,1,0,0,0,0,0,0,0,0];
-
-        const rawSVG = await Moralis.Cloud.run("getSVG",{numericTraits:numericTraits,equippedWearables:equippedWearables})
-
-        const svgBlob = new Blob([rawSVG], {type:"image/svg+xml;charset=utf-8"})
-        const url = URL.createObjectURL(svgBlob)
-
-        this.load.image('player',url);
-
-        this.load.on('filecomplete', function(){
-
-          initPlayer()
-        }, this);
-
-        this.load.start()
-      }
-
-      async function initPlayer(){
-        player = that.physics.add.sprite(500, 300, 'player').setScale(0.3).refreshBody();
-        player.setBounce(0);
-        that.physics.add.collider(player, platforms);
-	player.setCollideWorldBounds(true);
-      }
-
-      // initial setup
-      async function create ()
-      {
-        this.add.image(400, 300, 'background').setScale(5);
-
-        platforms = this.physics.add.staticGroup();
-
-        platforms.create(472, 400, 'Rock3').setScale(1).refreshBody();
-        platforms.create(448, 400, 'Rock2').setScale(1).refreshBody();
-        platforms.create(424, 400, 'Rock2').setScale(1).refreshBody();
-	platforms.create(400, 376, 'SeaWeed').setScale(1).refreshBody();
-        platforms.create(400, 400, 'Rock1').setScale(1).refreshBody();
-
-	      
-	
-      
- 
-	platforms.create(630, 470, 'Rock11').setScale(1).refreshBody();      
-	player = that.physics.add.sprite(500, 300, 'player').setScale(0.1).refreshBody();
-        player.setBounce(0);
-        that.physics.add.collider(player, platforms);
-	player.setCollideWorldBounds(true);
-	this.physics.add.collider(player, platforms);
-        cursors = this.input.keyboard.createCursorKeys();
-
-
-        let user = Moralis.User.current();
-        let query = new Moralis.Query('PlayerPosition');
-        let subscription = await query.subscribe();
-        subscription.on('create', (plocation) => {
-          if(plocation.get("player") != user.get("ethAddress")){
-
-            // if first time seeing
-            if(competitors[plocation.get("player")] == undefined){
-              // create a sprite
-              competitors[plocation.get("player")] = this.add.image( plocation.get("x"), plocation.get("y"), 'comptetitor').setScale(0.1);
-            }
-            else{
-              competitors[plocation.get("player")].x = plocation.get("x");
-              competitors[plocation.get("player")].y = plocation.get("y");
-            }
-
-            console.log("someone moved!")
-            console.log(plocation.get("player"))
-            console.log("new X ", plocation.get("x"))
-            console.log("new Y ", plocation.get("y"))
-          }
-        });
-
-      }
-
-      // 60 times per second  - 60 frames per second
-      async function update ()
-      {
-	game.scale.pageAlignHorizontally = true;
-	game.scale.pageAlignVertically = true;
-	game.scale.refresh();      
-        if(!player)
-          return;
-
-        // LOGIC
-        if (cursors.left.isDown)
-        {
-            player.setVelocityX(-40);
-	    player.flipX = true;
-        }
-        else if (cursors.right.isDown)
-        {
-            player.setVelocityX(40);
-	    player.flipX = false;
-        }
-	else
-	{
-	    player.setVelocityX(0);
-	}
-
-        if (cursors.up.isDown)
-        {
-            player.setVelocityY(-30);
-        }
-	else if (cursors.down.isDown)
-        {
-	    player.setVelocityY(30);
-        }
-
-        if(player.lastX!=player.x  || player.lastY!=player.y){
-          let user = Moralis.User.current();
-
-          const PlayerPosition = Moralis.Object.extend("PlayerPosition");
-          const playerPosition = new PlayerPosition();
-
-          playerPosition.set("player",user.get("ethAddress"));
-          playerPosition.set("x",player.x);
-          playerPosition.set("y",player.y)
-
-          player.lastX = player.x;
-          player.lastY = player.y;
-
-          await playerPosition.save();
-        }
-
-
-      }
-
-
-      // add from here down
-      async function login() {
-        let user = Moralis.User.current();
-        if (!user) {
-          user = await Moralis.Web3.authenticate();
-          launch()
-        }
-        console.log("logged in user:", user);
-      }
-
-      async function logOut() {
-        await Moralis.User.logOut();
-        console.log("logged out");
-        location.reload();
-      }
-
-
-      document.getElementById("btn-login").onclick = login;
-      document.getElementById("btn-logout").onclick = logOut;
-
-
-
-
-    </script>
-
-	  
-	  
-
-
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
   </body>
-
 </html>
