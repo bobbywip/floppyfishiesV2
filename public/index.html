@@ -294,8 +294,19 @@
 	this.physics.add.collider(player, platforms);
         cursors = this.input.keyboard.createCursorKeys();
 
+	this.data.set('Level', 0);      
+        this.data.set('Room', 0);
+        this.data.set('Points', 0);
+	this.data.set('Health', 100);
 	      
-	      
+        var text = this.add.text(100, 100, '', { font: '64px Courier', fill: '#00ff00' });
+
+        text.setText([
+	    'Level: ' + this.data.get('Level'),
+            'Room: ' + this.data.get('Room'),
+            'Points: ' + this.data.get('Points'),
+	    'Health: ' + this.data.get('Health'),
+        ]);      
 
         let user = Moralis.User.current();
         let query = new Moralis.Query('PlayerPosition');
