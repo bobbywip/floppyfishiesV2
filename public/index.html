@@ -145,7 +145,7 @@
       }
 
       async function initPlayer(){
-        player = that.physics.add.sprite(500, 300, 'player').setScale(0.5).refreshBody();
+        player = that.physics.add.sprite(500, 300, 'player').setScale(0.1).refreshBody();
         player.setBounce(0);
         that.physics.add.collider(player, platforms);
 	player.setCollideWorldBounds(true);
@@ -169,7 +169,7 @@
       
  	platforms.create(630, 470, 'Rock11').setScale(1).refreshBody(); 
 	platforms.create(630, 470, 'Rock11').setScale(1).refreshBody();      
-	player = that.physics.add.sprite(500, 300, 'player').setScale(0.5).refreshBody();
+	player = that.physics.add.sprite(500, 300, 'player').setScale(0.1).refreshBody();
         player.setBounce(0);
         that.physics.add.collider(player, platforms);
 	player.setCollideWorldBounds(true);
@@ -186,7 +186,7 @@
             // if first time seeing
             if(competitors[plocation.get("player")] == undefined){
               // create a sprite
-              competitors[plocation.get("player")] = this.add.image( plocation.get("x"), plocation.get("y"), 'comptetitor').setScale(0.5);
+              competitors[plocation.get("player")] = this.add.image( plocation.get("x"), plocation.get("y"), 'comptetitor').setScale(0.1);
             }
             else{
               competitors[plocation.get("player")].x = plocation.get("x");
