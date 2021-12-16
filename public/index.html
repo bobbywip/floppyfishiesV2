@@ -25,8 +25,8 @@
 
       var config = {
           type: Phaser.AUTO,
-          width: 800,
-          height: 600,
+          width: 640,
+          height: 480,
           physics: {
               default: 'arcade',
               arcade: {
@@ -75,6 +75,15 @@
         this.load.image('Rock1', 'assets/Custom/Rock1.png');
 	this.load.image('Rock2', 'assets/Custom/Rock2.png');
 	this.load.image('Rock3', 'assets/Custom/Rock3.png');
+	this.load.image('Rock4', 'assets/Custom/Rock3.png');
+	this.load.image('Rock5', 'assets/Custom/Rock3.png');
+	this.load.image('Rock6', 'assets/Custom/Rock3.png');
+	this.load.image('Rock7', 'assets/Custom/Rock3.png');
+	this.load.image('Rock8', 'assets/Custom/Rock3.png');
+	this.load.image('Rock9', 'assets/Custom/Rock3.png');
+	this.load.image('Rock10', 'assets/Custom/Rock3.png');
+	this.load.image('Rock11', 'assets/Custom/Rock3.png');
+	this.load.image('Rock12', 'assets/Custom/Rock3.png');
 	this.load.image('SeaWeed', 'assets/Custom/SeaWeed.png');
 	this.load.image('SeaWeed2', 'assets/Custom/SeaWeed2.png');
 	this.load.image('player', 'assets/player.png');
@@ -120,7 +129,8 @@
 	platforms.create(400, 376, 'SeaWeed').setScale(1).refreshBody();
         platforms.create(400, 400, 'Rock1').setScale(1).refreshBody();
 
-	      
+	   
+	platforms.create(640, 480, 'Rock12').setScale(1).refreshBody();      
 	player = that.physics.add.sprite(500, 300, 'player').setScale(0.1).refreshBody();
         player.setBounce(0.1);
         that.physics.add.collider(player, platforms);
