@@ -260,11 +260,7 @@
       }
 
       async function initPlayer(){
-        player = that.physics.add.sprite(500, 300, 'player').setScale(0.3).refreshBody();
-        player.setBounce(0);
-        that.physics.add.collider(player, platforms);
-	player.setCollideWorldBounds(true);
-	this.cameras.main.startFollow(player);
+
       }
 
       // initial setup
@@ -290,9 +286,11 @@
       
  
 	platforms.create(630, 470, 'Rock11').setScale(1).refreshBody();      
-	this.physics.add.collider(player, platforms);
         cursors = this.input.keyboard.createCursorKeys();
-
+        player = that.physics.add.sprite(500, 300, 'player').setScale(0.3).refreshBody();
+        player.setBounce(0);
+        that.physics.add.collider(player, platforms);
+	player.setCollideWorldBounds(true);
         let user = Moralis.User.current();
         let query = new Moralis.Query('PlayerPosition');
         let subscription = await query.subscribe();
