@@ -362,6 +362,12 @@
 
           const PlayerPosition = Moralis.Object.extend("PlayerPosition");
           const playerPosition = new PlayerPosition();
+		
+	  const PlayerActive = Moralis.Object.extend("PlayerActive");
+	  const PlayerActive = new PlayerActive();
+	
+	  PlayerActive.set("Player",user.get("ethAddress"));	
+	  PlayerActive.set("Active","True");
 
           playerPosition.set("player",user.get("ethAddress"));
           playerPosition.set("x",player.x);
