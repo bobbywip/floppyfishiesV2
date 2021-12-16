@@ -5,7 +5,7 @@
 		.button {
   			background-color: #00FFFF; 
   			border: none;
-  			color: white;
+  			color: black;
   			padding: 15px 32px;
   			text-align: center;
   			text-decoration: none;
@@ -143,7 +143,7 @@
         platforms.create(400, 400, 'Rock1').setScale(1).refreshBody();
 
 	   
-	platforms.create(616, 470, 'Rock12').setScale(1).refreshBody();      
+	platforms.create(630, 470, 'Rock12').setScale(1).refreshBody();      
 	player = that.physics.add.sprite(500, 300, 'player').setScale(0.1).refreshBody();
         player.setBounce(0.1);
         that.physics.add.collider(player, platforms);
