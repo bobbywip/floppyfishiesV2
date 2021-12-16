@@ -300,6 +300,8 @@
         let user = Moralis.User.current();
         let query = new Moralis.Query('PlayerPosition');
         let subscription = await query.subscribe();
+	let query2 = new Moralis.Query('PlayerAcive');
+        let subscription2 = await query2.subscribe();
         subscription.on('create', (plocation) => {
           if(plocation.get("player") != user.get("ethAddress")){
 
