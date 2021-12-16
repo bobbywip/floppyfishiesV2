@@ -121,7 +121,6 @@
 	this.load.image('Rock12', 'assets/Custom/Rock3.png');
 	this.load.image('SeaWeed', 'assets/Custom/SeaWeed.png');
 	this.load.image('SeaWeed2', 'assets/Custom/SeaWeed2.png');
-	this.load.image('player', 'assets/player.png');
         this.load.image('comptetitor', 'assets/player.png');
 
 
@@ -145,7 +144,7 @@
       }
 
       async function initPlayer(){
-        player = that.physics.add.sprite(500, 300, 'player').setScale(0.1).refreshBody();
+        player = that.physics.add.sprite(500, 300, 'player').setScale(0.3).refreshBody();
         player.setBounce(0);
         that.physics.add.collider(player, platforms);
 	player.setCollideWorldBounds(true);
