@@ -2,11 +2,6 @@
   <head>
     <title>Floppy Fishies by oceanverse.eth</title>
 	<style>
-		.center {
-		  margin: auto;
-		  border: 3px solid #73AD21;
-		  padding: 10px;
-		}
 		body  {
   			background-image: url("paper.gif");
   			background-color: #0099ff;
@@ -52,7 +47,7 @@
     <button class="button button1" id="btn-logout">Logout</button>
     <br><br>
 
-    <script class="center">
+    <script>
       // connect to Moralis server
       Moralis.initialize("4SJbqJrqj31Vy4zgP6qTXSQZM4EKpUn6CqreX6Xi");
       Moralis.serverURL = "https://irgjvyx5h7jg.usemoralis.com:2053/server";
@@ -64,6 +59,7 @@
           type: Phaser.AUTO,
           width: 640,
           height: 480,
+	  margin: auto,
           physics: {
               default: 'arcade',
               arcade: {
