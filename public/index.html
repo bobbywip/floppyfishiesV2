@@ -2,18 +2,33 @@
   <head>
     <title>Floppy Fishies by oceanverse.eth</title>
 	<style>
+
 		.button {
-  			background-color: #00FFFF; 
-  			border: none;
-  			color: black;
-  			padding: 15px 32px;
-  			text-align: center;
-  			text-decoration: none;
-  			display: inline-block;
-  			margin: 4px 2px;
-  			cursor: pointer;
-                	font-size: 16px;
+    			    border: 0;
+    			    line-height: 2.5;
+			    padding: 0 20px;
+			    font-size: 20px;
+			    text-align: center;
+			    color: white;
+			    text-shadow: 1px 1px 1px #000;
+			    border-radius: 10px;
+			    background-color: rgba(0, 200, 200, 1);
+			    background-image: linear-gradient(to top left,
+							      rgba(0, 0, 0, .2),
+							      rgba(0, 0, 0, .2) 30%,
+							      rgba(0, 0, 0, 0));
+			    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+					inset -2px -2px 3px rgba(0, 0, 0, .6);
 			}
+
+			.button:hover {
+			    background-color: rgba(0, 150, 200, 1);
+			}
+
+			.button:active {
+			    box-shadow: inset -2px -2px 3px rgba(0, 120, 200, .6),
+					inset 2px 2px 3px rgba(0, 0, 0, .6);
+			}		
 	</style>
     <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
     <script src="https://npmcdn.com/moralis@latest/dist/moralis.js"></script>
