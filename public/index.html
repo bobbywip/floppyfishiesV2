@@ -279,24 +279,12 @@
 	platforms.create(400, 376, 'SeaWeed').setScale(1).refreshBody();
         platforms.create(400, 400, 'Rock1').setScale(1).refreshBody();
 
-	      
-	
-        this.w = this.cameras.main.width;
-        this.h = this.cameras.main.height;
-    
-       
-    
-        this.sky = new Phaser.Display.Color(120, 120, 255);
-        this.space = new Phaser.Display.Color(0, 0, 0);
+	     
     
         
     
         this.cameras.main.startFollow(player);
-    
-        var rect = new Phaser.Geom.Rectangle(0, -2 * this.h, this.w, 2 * this.h);
-    
-        Phaser.Actions.RandomRectangle(bg.getChildren(), rect);	      
-	      
+
 	      
       
  
