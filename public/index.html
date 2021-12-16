@@ -14,7 +14,7 @@
 		  align-items: start;
 		  display: inline;
 		  left: 30%;
-		  top: 15px;
+		  top: 5%;
 		  height: 48px;
 		  justify-content: center;
 		  line-height: 24px;
@@ -282,6 +282,9 @@
 
 	      
 	
+	      
+	      
+	      
       
  
 	platforms.create(630, 470, 'Rock11').setScale(1).refreshBody();      
@@ -292,6 +295,15 @@
 	this.physics.add.collider(player, platforms);
         cursors = this.input.keyboard.createCursorKeys();
 
+	      
+	      
+	      
+	      
+	button = game.add.button(game.world.centerX - 95, 400, 'button', actionOnClick, this, 2, 1, 0);
+
+	button.onInputOver.add(over, this);
+	button.onInputOut.add(out, this);
+	button.onInputUp.add(up, this);      
 
         let user = Moralis.User.current();
         let query = new Moralis.Query('PlayerPosition');
