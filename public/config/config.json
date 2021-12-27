@@ -6,8 +6,8 @@
     "SYMBOL": "ETH",
     "ID": 5
   },
-  "NFT_NAME": "REUNFT",
-  "SYMBOL": "REU",
+  "NFT_NAME": "FLOPPY FISHIES",
+  "SYMBOL": "FLOP",
   "MAX_SUPPLY": 1000,
   "WEI_COST": 70000000000000000,
   "DISPLAY_COST": 0.01,
