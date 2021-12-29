@@ -120,7 +120,7 @@ function App() {
     SHOW_BACKGROUND: false,
   });
 
-    const withdrawETH = () => {
+  const withdrawETH = () => {
     let cost = CONFIG.WEI_COST;
     let gasLimit = CONFIG.GAS_LIMIT;
     let totalCostWei = String(cost);
