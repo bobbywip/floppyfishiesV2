@@ -219,7 +219,7 @@
 	    
       Moralis.initialize("4SJbqJrqj31Vy4zgP6qTXSQZM4EKpUn6CqreX6Xi");
       Moralis.serverURL = "https://irgjvyx5h7jg.usemoralis.com:2053/server";
-
+      Moralis.Start( serverURL, "4SJbqJrqj31Vy4zgP6qTXSQZM4EKpUn6CqreX6Xi");
 
 
       var config = {
@@ -428,7 +428,7 @@
       async function login() {
         let user = Moralis.User.current();
         if (!user) {
-          user = await Moralis.Web3.authenticate();
+          user = await Moralis.authenticate();
           launch()
         }
        console.log("logged in user:", user);	      
