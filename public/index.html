@@ -455,10 +455,12 @@
        const MyNFTs = await Moralis.Web3API.account.getNFTsForContract(options);
 
 
-	          MyNFTs.forEach(function(nft){
-       		  let url = fixURL(nft.token_uri);
-       		  console.log(url)
-    		  })
+	      	const parent = MyNFTs.result;
+
+		for (const child of parent.children) {
+  		console.log(child);
+		}
+
 	      
 	      
 	      console.log(JSON.stringify(MyNFTs));
