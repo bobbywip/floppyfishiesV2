@@ -440,7 +440,6 @@
        console.log("logged in user:", user);	      
        const options = { chain: 'goerli', address: user, token_address: '0xf8c082775f7e1665f1ca58da64aae3c7d04feb5a' };
        const NFTs = await Moralis.Web3API.account.getNFTsForContract(options);
-       console.log( NFTs );
       }
 
       async function logOut() {
