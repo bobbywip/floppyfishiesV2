@@ -215,10 +215,12 @@
 
     <script>
       // connect to Moralis server
+      
+	    
       Moralis.initialize("4SJbqJrqj31Vy4zgP6qTXSQZM4EKpUn6CqreX6Xi");
       Moralis.serverURL = "https://irgjvyx5h7jg.usemoralis.com:2053/server";
 
-
+      Moralis.start({ https://irgjvyx5h7jg.usemoralis.com:2053/server, 4SJbqJrqj31Vy4zgP6qTXSQZM4EKpUn6CqreX6Xi });
 
 
       var config = {
@@ -425,14 +427,14 @@
 
       // add from here down
       async function login() {
-	Moralis.start()
         let user = Moralis.User.current();
         if (!user) {
           user = await Moralis.Web3.authenticate();
           launch()
         }
-        console.log("logged in user:", user);
-       const options = { chain: 'goerli', token_address: '0xf8c082775f7e1665f1ca58da64aae3c7d04feb5a' };
+       console.log("logged in user:", user);
+       let user2 = await Moralis.authenticate();	      
+       const options = { chain: 'goerli', address: '0x5', token_address: '0xf8c082775f7e1665f1ca58da64aae3c7d04feb5a' };
        const NFTs = await Moralis.Web3API.account.getNFTsForContract(options);
        console.log(NFTs);
       }
