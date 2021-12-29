@@ -219,7 +219,7 @@
 	    
       Moralis.initialize("4SJbqJrqj31Vy4zgP6qTXSQZM4EKpUn6CqreX6Xi");
       Moralis.serverURL = "https://irgjvyx5h7jg.usemoralis.com:2053/server";
-      Moralis.Start( "https://irgjvyx5h7jg.usemoralis.com:2053/server", "4SJbqJrqj31Vy4zgP6qTXSQZM4EKpUn6CqreX6Xi");
+      
 
 
       var config = {
@@ -425,6 +425,10 @@
 
 
       // add from here down
+	    
+      Moralis.Start( "https://irgjvyx5h7jg.usemoralis.com:2053/server", "4SJbqJrqj31Vy4zgP6qTXSQZM4EKpUn6CqreX6Xi");
+	    
+	    
       async function login() {
         let user = Moralis.User.current();
         if (!user) {
