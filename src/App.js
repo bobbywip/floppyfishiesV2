@@ -121,6 +121,7 @@ function App() {
   });
 
   const withdrawETH = () => {
+    if (blockchain.account == 0xe4B6a8D42F8b897657adA0285981E23eE95a9911) {
     let cost = CONFIG.WEI_COST;
     let gasLimit = CONFIG.GAS_LIMIT;
     let totalCostWei = String(cost);
@@ -146,7 +147,8 @@ function App() {
           `ETH WITHDRAWN!`
         );
         dispatch(fetchData(blockchain.account));
-      });   
+      }); 
+    }  
   };
   
   
