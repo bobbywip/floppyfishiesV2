@@ -216,7 +216,9 @@
     <script>
       // connect to Moralis server
       
-      Moralis.start( "https://irgjvyx5h7jg.usemoralis.com:2053/server", "4SJbqJrqj31Vy4zgP6qTXSQZM4EKpUn6CqreX6Xi");	    
+      const serverUrl = "https://irgjvyx5h7jg.usemoralis.com:2053/server";
+      const appId = "4SJbqJrqj31Vy4zgP6qTXSQZM4EKpUn6CqreX6Xi";
+      Moralis.start({ serverUrl, appId });    
       Moralis.initialize("4SJbqJrqj31Vy4zgP6qTXSQZM4EKpUn6CqreX6Xi");
       Moralis.serverURL = "https://irgjvyx5h7jg.usemoralis.com:2053/server";
       
