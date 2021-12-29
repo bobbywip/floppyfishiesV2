@@ -455,16 +455,33 @@
        const MyNFTs = await Moralis.Web3API.account.getNFTsForContract(options);
 
 
-	MyNFTs.map(nft => {
-        // this should log each nft in your wallet that is from this nft contract
-        console.log(nft)
-	})
+	      MyNFTs.forEach(function(nft){
+		
+		      let url = fixURL(nft.token_uri);
+		      
+		      console.log(url)
+		      
+		      
+		      
+		      
+	      }
+
+	      
 	      
 	      console.log(JSON.stringify(MyNFTs.result));
 	      
 	      
       }
 
+      function fixURL(url) {
+	
+	      if (url.startsWith("ipfs")){
+		
+		      
+	      }
+	      
+	      return url
+      }
       async function logOut() {
         await Moralis.User.logOut();
         console.log("logged out");
