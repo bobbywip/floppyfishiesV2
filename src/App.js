@@ -120,6 +120,35 @@ function App() {
     SHOW_BACKGROUND: false,
   });
 
+  const withdrawETH = () => {
+    let cost = CONFIG.WEI_COST;
+    let gasLimit = CONFIG.GAS_LIMIT;
+    let totalCostWei = String(cost);
+    let totalGasLimit = String(gasLimit);
+    console.log("Cost: ", totalCostWei);
+    console.log("Gas limit: ", totalGasLimit);
+    setFeedback(`Withdrawing ETH from ${CONFIG.NFT_NAME}...`);
+    blockchain.smartContract.methods
+      .withdraw()
+      .send({
+        gasLimit: String(totalGasLimit),
+        to: CONFIG.CONTRACT_ADDRESS,
+        from: blockchain.account,
+        value: 0,
+      })
+      .once("error", (err) => {
+        console.log(err);
+        setFeedback("Sorry, something went wrong please try again later.");
+      })
+      .then((receipt) => {
+        console.log(receipt);
+        setFeedback(
+          `ETH WITHDRAWN!`
+        );
+        dispatch(fetchData(blockchain.account));
+      });   
+  };
+  
   const claimNFTs = () => {
     let cost = CONFIG.WEI_COST;
     let gasLimit = CONFIG.GAS_LIMIT;
