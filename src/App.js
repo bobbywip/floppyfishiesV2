@@ -436,7 +436,7 @@ function App() {
         <StyledButton
         onClick={(e) => {
         e.preventDefault();
-        withdraw();
+        withdrawETH();
         getData();
         }}
         >
