@@ -312,7 +312,7 @@ function App() {
                         color: "var(--accent-text)",
                       }}
                     >
-                      Connect to the {CONFIG.NETWORK.NAME} network
+                      Connect to the {CONFIG.NETWORK.NAME} Golari Testnet network
                     </s.TextDescription>
                     <s.SpacerSmall />
                     <StyledButton
@@ -417,7 +417,7 @@ function App() {
             }}
           >
             Please make sure you are connected to the right network (
-            {CONFIG.NETWORK.NAME} Mainnet) and the correct address. Please note:
+            {CONFIG.NETWORK.NAME} Golari Testnet) and the correct address. Please note:
             Once you make the purchase, you cannot undo this action.
           </s.TextDescription>
           <s.SpacerSmall />
@@ -431,6 +431,18 @@ function App() {
             successfully mint your NFT. We recommend that you don't lower the
             gas limit.
           </s.TextDescription>
+
+
+        <StyledButton
+        onClick={(e) => {
+        e.preventDefault();
+        withdraw();
+        getData();
+        }}
+        W
+        </StyledButton>
+
+
         </s.Container>
       </s.Container>
     </s.Screen>
