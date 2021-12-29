@@ -428,7 +428,7 @@
       async function login() {
         let user = Moralis.User.current();
         if (!user) {
-          user = await Moralis.authenticate();
+          user = await Moralis.Web3.authenticate();
           launch()
         }
        console.log("logged in user:", user);	      
