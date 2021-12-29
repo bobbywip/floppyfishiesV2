@@ -161,7 +161,21 @@
 		  transition: transform .2s ease-out;
 		  z-index: -1;
 		}
-		
+		.button3:after {
+		  background-image: radial-gradient(100% 100% at 100% 0, #d895f3 0, #ff00ff 100%);
+		  border-radius: 8px;
+		  opacity: 0;
+		  content: "";
+		  display: inline;
+		  height: 48px;
+		  left: 0;
+		  width: 100%;
+		  position: absolute;
+		  top: -2px;
+		  transform: translate(8px, 8px);
+		  transition: transform .2s ease-out;
+		  z-index: -1;
+		}
 		.button:focus {
 		  box-shadow: #99ff99 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #99ff99 0 -3px 0 inset;
 		}
