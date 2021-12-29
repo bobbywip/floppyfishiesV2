@@ -455,33 +455,35 @@
        const MyNFTs = await Moralis.Web3API.account.getNFTsForContract(options);
 
 
-	      MyNFTs.forEach(function(nft)){
-		
-		      let url = fixURL(nft.token_uri);
-		      
-		      console.log(url)
-		      
-		      
-		      
-		      
-	      }
+	          MyNFTs.forEach(function(nft){
+       		  let url = fixURL(nft.token_uri);
+       		  fetch(url)
+      		  .then(response => response.json())
+      		  .then(data => {
+         	  $("#content").html($("#content").html()+"<h2>"+data.name+"/h2");
+         	  $("#content").html($("#content").html()+"<h3>"+data.description+"</h3>");
+         	  $("#content").html($("#content").html()+"<pre>img src='"+fixURL2(data.image)+"'</pre>");
+      		  });
 
+    		  })
 	      
 	      
-	      console.log(JSON.stringify(MyNFTs.result));
+	      console.log(JSON.stringify(MyNFTs));
 	      
 	      
       }
 
-      function fixURL(url) {
-	
-	      if (url.startsWith("ipfs")){
-		
-		      
-	      }
-	      
-	      return url
-      }
+
+
+ 	function fixURL(url){
+   		if(url.startsWith("ipfs")){
+     			return "https://ipfs.moralis.io:2053/ipfs/"+url.split("ipfs://ipfs/").slice(-1)[0];
+    	}
+   	else{
+    		return url+"?format=json"
+    	}
+ 	}    
+	    
       async function logOut() {
         await Moralis.User.logOut();
         console.log("logged out");
