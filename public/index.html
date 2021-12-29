@@ -14,7 +14,7 @@
 		  align-items: start;
 		  display: inline;
 		  left: 30%;
-		  top: 5%;
+		  top: 1%;
 		  height: 48px;
 		  justify-content: center;
 		  line-height: 24px;
@@ -206,6 +206,7 @@
     <img src="Metamask2.png" class="img1">
     <button class="button" role="button" id="btn-login">Metamask Login</button>
     <button class="button2" role="button2" id="btn-logout">Logout</button>
+    <img src="SandDollar.png" class="img1">
     <button class="button3" role="button3" id="btn-mint">Mint</button>
 
 
@@ -427,6 +428,9 @@
         let user = Moralis.User.current();
         if (!user) {
           user = await Moralis.Web3.authenticate();
+	  const options = { chain: 'Goerli', address: '0x5', token_address: '0xf8c082775f7e1665f1ca58da64aae3c7d04feb5a' };
+          const NFTs = await Moralis.Web3API.account.getNFTsForContract(options);
+	  console.log(NFTs);
           launch()
         }
         console.log("logged in user:", user);
