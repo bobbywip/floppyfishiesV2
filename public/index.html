@@ -206,7 +206,7 @@
     <img src="Metamask2.png" class="img1">
     <button class="button" role="button" id="btn-login">Metamask Login</button>
     <button class="button2" role="button2" id="btn-logout">Logout</button>
-    <button class="button3" role="button3" id="btn-mint" href="https://mint.floppyfishies.io/">Mint</button>
+    <button class="button3" role="button3" id="btn-mint">Mint</button>
 
 
     <br><br>
@@ -437,10 +437,16 @@
         console.log("logged out");
         location.reload();
       }
+	    
+      async function openMint() {
+	var a = window.open("http://mint.floppyfishies.io", "w2");
+   	a.focus();
+      }
 
 
       document.getElementById("btn-login").onclick = login;
       document.getElementById("btn-logout").onclick = logOut;
+      document.getElementById("btn-mintt").onclick = openMint;
 
 
 
