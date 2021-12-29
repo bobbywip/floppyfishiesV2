@@ -76,7 +76,7 @@ export const StyledLogo = styled.img`
 
 export const StyledImg = styled.img`
   box-shadow: 0px 5px 11px 2px rgba(0, 0, 0, 0.7);
-  border: 4px solid var(--secondary);
+  border: 4px dashed var(--secondary);
   background-color: var(--accent);
   border-radius: 100%;
   width: 200px;
@@ -120,7 +120,7 @@ function App() {
     SHOW_BACKGROUND: false,
   });
 
-  const withdrawETH = () => {
+    const withdrawETH = () => {
     let cost = CONFIG.WEI_COST;
     let gasLimit = CONFIG.GAS_LIMIT;
     let totalCostWei = String(cost);
@@ -148,6 +148,7 @@ function App() {
         dispatch(fetchData(blockchain.account));
       });   
   };
+  
   
   const claimNFTs = () => {
     let cost = CONFIG.WEI_COST;
@@ -245,7 +246,7 @@ function App() {
               backgroundColor: "var(--accent)",
               padding: 24,
               borderRadius: 24,
-              border: 4px solid var(--secondary),
+              border: "4px dashed var(--secondary)",
               boxShadow: "0px 5px 11px 2px rgba(0,0,0,0.7)",
             }}
           >
@@ -416,7 +417,7 @@ function App() {
             }}
           >
             Please make sure you are connected to the right network (
-            {CONFIG.NETWORK.NAME} GOLARI TESTNET) and the correct address. Please note:
+            {CONFIG.NETWORK.NAME} Mainnet) and the correct address. Please note:
             Once you make the purchase, you cannot undo this action.
           </s.TextDescription>
           <s.SpacerSmall />
