@@ -454,7 +454,7 @@
        const options = { chain: '0x5', address: wallet, token_address: '0xf8c082775f7e1665f1ca58da64aae3c7d04feb5a'};
        const MyNFTs = await Moralis.Web3API.account.getNFTsForContract(options);
 
-	      console.log(JSON.stringify(MyNFTs));
+	      console.log(JSON.stringify(MyNFTs[0]));
 	      
 	      
       }
