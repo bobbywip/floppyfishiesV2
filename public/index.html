@@ -456,10 +456,10 @@
 
 
 	      for (var key in MyNFTs.result) {
-		      console.log(JSON.stringify(key.token_uri));      
+		      console.log(JSON.stringify(key[0]));      
 	      }
 	      
-	      console.log("NFTs" + JSON.stringify(MyNFTs));
+	      console.log(JSON.stringify(MyNFTs.result));
 	      
 	      
       }
