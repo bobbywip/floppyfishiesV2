@@ -425,6 +425,7 @@
 
       // add from here down
       async function login() {
+	Moralis.start()
         let user = Moralis.User.current();
         if (!user) {
           user = await Moralis.Web3.authenticate();
