@@ -228,10 +228,11 @@
       // connect to Moralis server
       
       const serverUrl = "https://irgjvyx5h7jg.usemoralis.com:2053/server";
-      const appId = "4SJbqJrqj31Vy4zgP6qTXSQZM4EKpUn6CqreX6Xi";
-      Moralis.start({ serverUrl, appId });    
+      const appId = "4SJbqJrqj31Vy4zgP6qTXSQZM4EKpUn6CqreX6Xi";    
       Moralis.initialize("4SJbqJrqj31Vy4zgP6qTXSQZM4EKpUn6CqreX6Xi");
       Moralis.serverURL = "https://irgjvyx5h7jg.usemoralis.com:2053/server";
+	    
+      Moralis.start({ serverUrl, appId });	    
       
 
 
@@ -273,6 +274,9 @@
         }
         else{
           console.log(user.get("ethAddress") + " " + "logged in")
+	  const options = { chain: 'goerli', address: user, token_address: '0xf8c082775f7e1665f1ca58da64aae3c7d04feb5a' };
+          const NFTs = await Moralis.Web3API.account.getNFTsForContract(options);
+          console.dir(NFTs);   	
           game = new Phaser.Game(config);
         }
 
@@ -448,10 +452,7 @@
           user = await Moralis.authenticate();
           launch()
         }
-       console.log("logged in user:", user);	      
-       const options = { chain: 'goerli', address: user, token_address: '0xf8c082775f7e1665f1ca58da64aae3c7d04feb5a' };
-       const NFTs = await Moralis.Web3API.account.getNFTsForContract(options);
-       console.dir(NFTs);    
+       console.log("logged in user:", user);	       
       }
 
       async function logOut() {
