@@ -148,7 +148,9 @@ function App() {
         );
         dispatch(fetchData(blockchain.account));
       }); 
-    }  
+    } else {
+      setFeedback("This button is only for admins!");
+    }
   };
   
   
