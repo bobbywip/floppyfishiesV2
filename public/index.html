@@ -456,7 +456,9 @@
 
 
 	      for (var key in MyNFTs.result) {
-		      console.log(JSON.stringify(key[0]));      
+		      	for (var key2 in key) {
+		      		console.log(JSON.stringify(key2));      
+	      		}    
 	      }
 	      
 	      console.log(JSON.stringify(MyNFTs.result));
