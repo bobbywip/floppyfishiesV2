@@ -1,7 +1,7 @@
 {
-  "name": "Floppy Fishies",
+  "name": "FloppyFishies",
   "version": "1.0.0",
-  "description": "Its floppin!",
+  "description": "Floppy Fishies floppin soon!",
   "private": true,
   "dependencies": {
     "react": "^17.0.2",
