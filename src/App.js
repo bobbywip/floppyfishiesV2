@@ -35,6 +35,7 @@ export const StyledButton2 = styled.button`
 		  background-image: radial-gradient(100% 100% at 100% 0, #0099ff 0, #66ff66 100%);
 		  border: 0;
 		  left: 30%;
+		  width: 128px;
 		  border-radius: 6px;
 		  box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
 		  box-sizing: border-box;
