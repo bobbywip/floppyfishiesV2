@@ -473,6 +473,10 @@
 
 	      const test = MyNFTs.result.pop();
 	      
+	      for (const [key, value] of Object.entries(test)) {
+  		console.log(`${key}: ${value}`);
+	      }
+	      
 	      console.log(test);
 	      
 	      
