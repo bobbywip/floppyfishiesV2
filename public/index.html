@@ -477,15 +477,16 @@
 		if (key == "token_id") {
 			console.log(`ID: ${value}`);
 		} else if (key == "token_uri") {
-			console.log(`Uri: ${value}`);		
-		} else if (key == "metadata") {
-			console.log(`metadata: ${value}`);
-			const iterator = value.keys();
-
-			for (const key2 of iterator) {
-  				console.log(key2);
-			}
-		} 	      
+			//console.log(`Uri: ${value}`);
+				let url = value;
+       				fetch(url)
+				.then(response => response.json())
+				.then(data => {
+				 $("#content").html($("#content").html()+"<h2>"+data.name+"/h2");
+				 $("#content").html($("#content").html()+"<h3>"+data.description+"</h3>");
+				 $("#content").html($("#content").html()+"<img src='"+data.image+"'></img>");
+				 });
+		}	      
 		        
   		//console.log(`${key}: ${value}`);
 	      }
