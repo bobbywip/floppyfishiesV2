@@ -227,12 +227,22 @@
 
   <body>
 
+	  <script>
+		const serverUrl = "https://irgjvyx5h7jg.usemoralis.com:2053/server";
+      		const appId = "4SJbqJrqj31Vy4zgP6qTXSQZM4EKpUn6CqreX6Xi";    
+      		const [SandDollars, setSandDollars] = useState(0);
+      		Moralis.initialize("4SJbqJrqj31Vy4zgP6qTXSQZM4EKpUn6CqreX6Xi");
+      		Moralis.serverURL = "https://irgjvyx5h7jg.usemoralis.com:2053/server";
+	    
+      		Moralis.start({ serverUrl, appId });  
+	  </script>
     	  
     <img src="Metamask2.png" class="img1">
     <button class="button" role="button" id="btn-login">Metamask Login</button>
     <button class="button2" role="button2" id="btn-logout">Logout</button>
-    <img src="SandDollar.png" class="img2">
+	
 	  {SandDollars}
+    <img src="SandDollar.png" class="img2">
     <button class="button3" role="button3" id="btn-mint">Mint</button>
 
 
@@ -244,7 +254,6 @@
       
       const serverUrl = "https://irgjvyx5h7jg.usemoralis.com:2053/server";
       const appId = "4SJbqJrqj31Vy4zgP6qTXSQZM4EKpUn6CqreX6Xi";    
-      const [SandDollars, setSandDollars] = useState(0);
       Moralis.initialize("4SJbqJrqj31Vy4zgP6qTXSQZM4EKpUn6CqreX6Xi");
       Moralis.serverURL = "https://irgjvyx5h7jg.usemoralis.com:2053/server";
 	    
