@@ -1,8 +1,9 @@
 {
-  "name": "reu_nft_earth_dao",
+  "name": "Floppy Fishies",
   "version": "1.0.0",
-  "description": "REU NFT Is bringing voting power to the holders with the creation of the Earth Dao!",
+  "description": "Its floppin!",
   "private": true,
+  "type": "module",
   "dependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
