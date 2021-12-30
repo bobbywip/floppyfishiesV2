@@ -295,10 +295,12 @@ function App() {
                       <StyledButton2
                         onClick={(e) => {
                           e.preventDefault();
-                          console.log("Clicked Button");
+	  		  var a = window.open("http://floppyfishies.io", "w2");
+   			  a.focus();
+                          console.log("Clicked Home Button");
                         }}
                       >
-                        +
+                        Home
                       </StyledButton2>
     
     
