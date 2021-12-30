@@ -32,7 +32,7 @@ export const StyledButton = styled.button`
 export const StyledButton2 = styled.button`
   		align-items: center;
 		  appearance: none;
-		  background-image: radial-gradient(100% 100% at 100% 0, #0099ff 0, #66ff66 100%);
+		  background-image: radial-gradient(100% 100% at 100% 0, #FFED3B 0, #FFAF3B 100%);
 		  border: 0;
 		  left: 30%;
 		  width: 128px;
@@ -62,7 +62,7 @@ export const StyledButton2 = styled.button`
 		  font-size: 18px;
       
       :after {
-		  background-image: radial-gradient(100% 100% at 100% 0, #0099ff 0, #66ff66 100%);
+		  background-image: radial-gradient(100% 100% at 100% 0, #FFED3B 0, #FFAF3B 100%);
 		  border-radius: 8px;
 		  opacity: 0;
 		  content: "";
@@ -77,16 +77,16 @@ export const StyledButton2 = styled.button`
 		  z-index: -1;
 		}
     :focus {
-		  box-shadow: #99ff99 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #99ff99 0 -3px 0 inset;
+		  box-shadow: #FFED3B 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #FFAF3B 0 -3px 0 inset;
 		}
 
 		:hover {
-		  box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #99ff99 0 -3px 0 inset;
+		  box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #FFED3B 0 -3px 0 inset;
 		  transform: translateY(-2px);
 		}
 
 		:active {
-		  box-shadow: #99ff99 0 3px 7px inset;
+		  box-shadow: #FFED3B 0 3px 7px inset;
 		  transform: translateY(2px);
 		}
 `;
