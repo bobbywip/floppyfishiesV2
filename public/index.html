@@ -228,13 +228,14 @@
   <body>
 
 	  <script>
-		const serverUrl = "https://irgjvyx5h7jg.usemoralis.com:2053/server";
-      		const appId = "4SJbqJrqj31Vy4zgP6qTXSQZM4EKpUn6CqreX6Xi";    
+		import React, { useEffect, useState, useRef } from "react";  
+		const tempServerUrl = "https://irgjvyx5h7jg.usemoralis.com:2053/server";
+      		const tempAppId = "4SJbqJrqj31Vy4zgP6qTXSQZM4EKpUn6CqreX6Xi";    
       		const [SandDollars, setSandDollars] = useState(0);
       		Moralis.initialize("4SJbqJrqj31Vy4zgP6qTXSQZM4EKpUn6CqreX6Xi");
       		Moralis.serverURL = "https://irgjvyx5h7jg.usemoralis.com:2053/server";
 	    
-      		Moralis.start({ serverUrl, appId });
+      		Moralis.start({ tempserverUrl, tempAppId });
 		  
 	       {SandDollars}
 	  </script>
