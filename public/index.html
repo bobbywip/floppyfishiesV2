@@ -480,7 +480,11 @@
 			console.log(`Uri: ${value}`);		
 		} else if (key == "metadata") {
 			console.log(`metadata: ${value}`);
-			console.log(Object.keys(value)); 
+			const iterator = value.keys();
+
+			for (const key2 of iterator) {
+  				console.log(key2);
+			}
 		} 	      
 		        
   		//console.log(`${key}: ${value}`);
