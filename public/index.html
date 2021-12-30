@@ -471,7 +471,7 @@
        const MyNFTs = await Moralis.Web3API.account.getNFTsForContract(options);
 
 
-	      const test = MyNFTs.pop();
+	      const test = MyNFTs.result.pop();
 	      
 	      console.log(JSON.stringify(test));
 	      
