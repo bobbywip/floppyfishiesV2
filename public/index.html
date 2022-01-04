@@ -250,7 +250,7 @@
 	    
       Moralis.start({ serverUrl, appId });
 	    
-      const TestImage = "https://bafybeiaoc6y3ar2k7lpkkjw5s6cjfwv4g4kcqlj7a2lrklqo2hb6ls65eq.ipfs.dweb.link/1.png";
+      
 
 
       var config = {
@@ -306,6 +306,7 @@
       // loading assets
       async function preload ()
       {
+	const TestImage = "https://bafybeiaoc6y3ar2k7lpkkjw5s6cjfwv4g4kcqlj7a2lrklqo2hb6ls65eq.ipfs.dweb.link/1.png";       
         that = this;
         this.load.image('background', 'assets/Custom/BG.png');
         this.load.image('Rock1', 'assets/Custom/Rock1.png');
@@ -322,7 +323,7 @@
 	this.load.image('Rock12', 'assets/Custom/Rock3.png');
 	this.load.image('SeaWeed', 'assets/Custom/SeaWeed.png');
 	this.load.image('SeaWeed2', 'assets/Custom/SeaWeed2.png');
-        this.load.image('comptetitor', `${InputImage}`);
+        this.load.image('comptetitor', `${TestImage}`);
 	     
 
         // fetch player SVG
@@ -334,7 +335,7 @@
         //const svgBlob = new Blob([rawSVG], {type:"image/svg+xml;charset=utf-8"})
         //const url = URL.createObjectURL(svgBlob)
 
-        this.load.image('player', InputImage);
+        this.load.image('player', TestImage);
 
         this.load.on('filecomplete', function(){
 
