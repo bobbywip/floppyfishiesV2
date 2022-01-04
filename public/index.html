@@ -248,8 +248,9 @@
       Moralis.initialize("4SJbqJrqj31Vy4zgP6qTXSQZM4EKpUn6CqreX6Xi");
       Moralis.serverURL = "https://irgjvyx5h7jg.usemoralis.com:2053/server";
 	    
-      Moralis.start({ serverUrl, appId });	    
-      
+      Moralis.start({ serverUrl, appId });
+	    
+      const TestImage = "https://bafybeiaoc6y3ar2k7lpkkjw5s6cjfwv4g4kcqlj7a2lrklqo2hb6ls65eq.ipfs.dweb.link/1.png";
 
 
       var config = {
@@ -264,7 +265,7 @@
               }
           },
           scene: {
-              preload: preload,
+              preload: preload("https://bafybeiaoc6y3ar2k7lpkkjw5s6cjfwv4g4kcqlj7a2lrklqo2hb6ls65eq.ipfs.dweb.link/1.png"),
               create: create,
               update: update
           },
@@ -284,6 +285,7 @@
       var that;
 
       function launch(){
+	
         let user = Moralis.User.current();
         if (!user) {
           console.log("PLEASE LOG IN WITH METAMASK!!")
@@ -299,7 +301,7 @@
 
 
       // loading assets
-      async function preload ()
+      async function preload(InputImage)
       {
         that = this;
         this.load.image('background', 'assets/Custom/BG.png');
@@ -317,19 +319,19 @@
 	this.load.image('Rock12', 'assets/Custom/Rock3.png');
 	this.load.image('SeaWeed', 'assets/Custom/SeaWeed.png');
 	this.load.image('SeaWeed2', 'assets/Custom/SeaWeed2.png');
-        this.load.image('comptetitor', 'assets/player.png');
+        this.load.image('comptetitor', `${InputImage}`);
 	     
 
         // fetch player SVG
-        const numericTraits = [1, 99, 99, 99, 1, 1]; // UI to change the traits
-        const equippedWearables = [23,6,2,43,0,4,0,1,0,0,0,0,0,0,0,0];
+        //const numericTraits = [1, 99, 99, 99, 1, 1]; // UI to change the traits
+        //const equippedWearables = [23,6,2,43,0,4,0,1,0,0,0,0,0,0,0,0];
 
-        const rawSVG = await Moralis.Cloud.run("getSVG",{numericTraits:numericTraits,equippedWearables:equippedWearables})
+        //const rawSVG = await Moralis.Cloud.run("getSVG",{numericTraits:numericTraits,equippedWearables:equippedWearables})
 
-        const svgBlob = new Blob([rawSVG], {type:"image/svg+xml;charset=utf-8"})
-        const url = URL.createObjectURL(svgBlob)
+        //const svgBlob = new Blob([rawSVG], {type:"image/svg+xml;charset=utf-8"})
+        //const url = URL.createObjectURL(svgBlob)
 
-        this.load.image('player',url);
+        this.load.image('player', InputImage);
 
         this.load.on('filecomplete', function(){
 
@@ -484,7 +486,7 @@
 				.then(data => {
 				 $("#content").html($("#content").html()+"<h2>"+data.name+"/h2");
 				 $("#content").html($("#content").html()+"<h3>"+data.description+"</h3>");
-				 $("#content").html($("#content").html()+"<img src='"+data.image+"'></img>");
+				 $("#content").html($("#content").html()+"<img src='"+data.image+"'></img>");	
 			         console.log(data.image);
 				 });
 		}	      
