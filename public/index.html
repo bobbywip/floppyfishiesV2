@@ -265,7 +265,7 @@
               }
           },
           scene: {
-              preload: preload("https://bafybeiaoc6y3ar2k7lpkkjw5s6cjfwv4g4kcqlj7a2lrklqo2hb6ls65eq.ipfs.dweb.link/1.png"),
+              preload: preload,
               create: create,
               update: update
           },
@@ -284,6 +284,9 @@
 
       var that;
 
+	    
+ 
+	    
       function launch(){
 	
         let user = Moralis.User.current();
@@ -301,7 +304,7 @@
 
 
       // loading assets
-      async function preload(InputImage)
+      async function preload ()
       {
         that = this;
         this.load.image('background', 'assets/Custom/BG.png');
@@ -458,7 +461,7 @@
 
       // add from here down
 	     
-      
+
 
 	    
       async function login() {
@@ -488,6 +491,12 @@
 				 $("#content").html($("#content").html()+"<h3>"+data.description+"</h3>");
 				 $("#content").html($("#content").html()+"<img src='"+data.image+"'></img>");	
 			         console.log(data.image);
+				 img_create(src, alt, title)
+			         var img = IEWIN ? new Image() : document.createElement('img');
+					img.src = data.image;
+					if ( alt != null ) img.alt = "Test1";
+					if ( title != null ) img.title = "Test2"
+					return img;
 				 });
 		}	      
 		        
