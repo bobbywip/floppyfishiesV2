@@ -351,7 +351,7 @@
 		if (key == "token_id") {
 			console.log(`ID: ${value}`);
 			this.load.image('player', `https://bafybeiaoc6y3ar2k7lpkkjw5s6cjfwv4g4kcqlj7a2lrklqo2hb6ls65eq.ipfs.dweb.link/${value}.png`);
-			player.image = `https://bafybeiaoc6y3ar2k7lpkkjw5s6cjfwv4g4kcqlj7a2lrklqo2hb6ls65eq.ipfs.dweb.link/${value}.png`;
+			
 		} else if (key == "token_uri") {
 			//console.log(`Uri: ${value}`);
 				let url = value;
@@ -502,7 +502,7 @@
           playerPosition.set("player",user.get("ethAddress"));
           playerPosition.set("x",player.x);
           playerPosition.set("y",player.y);
-	  playerPosition.set("image",player.image);	
+	  playerPosition.set("image","test");	
 
           player.lastX = player.x;
           player.lastY = player.y;
