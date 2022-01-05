@@ -449,7 +449,7 @@
             // if first time seeing
             if(competitors[plocation.get("player")] == undefined){
               // create a sprite
-	      comptetitor.setTexture(plocation.get("image"));
+	      this.comptetitor.setTexture(plocation.get("image"));
 	      console.log(plocation.get("image"));
               competitors[plocation.get("player")] = this.add.image( plocation.get("x"), plocation.get("y"), 'comptetitor').setScale(0.1);
             }
