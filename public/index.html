@@ -518,7 +518,7 @@
 
 		
 		const pipeline = [
-		  	{ match: { player: wallet } }
+		  	{ match: { player: `${wallet}` } }
 		];
 
 		const query = new Moralis.Query("PlayerPosition");
