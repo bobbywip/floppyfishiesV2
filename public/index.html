@@ -449,6 +449,8 @@
             // if first time seeing
             if(competitors[plocation.get("player")] == undefined){
               // create a sprite
+	      comptetitor.setTexture(plocation.get("image"));
+	      console.log(plocation.get("image"));
               competitors[plocation.get("player")] = this.add.image( plocation.get("x"), plocation.get("y"), 'comptetitor').setScale(0.1);
             }
             else{
@@ -515,24 +517,6 @@
 
           player.lastX = player.x;
           player.lastY = player.y;
-
-		
-		const pipeline = [
-		  	{ match: { player: `${wallet}` } }
-		];
-
-		const query = new Moralis.Query("PlayerPosition");
-
-		query.aggregate(pipeline)
-		  .then(function(results) {
-		    // results contains name that matches 'BBQ'
-			console.log(results);
-		  })
-		  .catch(function(error) {
-		    // There was an error.
-			console.log("Error in query");
-		  });	
-		
 		
           await playerPosition.save();	
         }
