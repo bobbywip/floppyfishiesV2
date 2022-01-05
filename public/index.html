@@ -308,7 +308,44 @@
       // loading assets
       async function preload ()
       {
-	const TestImage = "https://bafybeiaoc6y3ar2k7lpkkjw5s6cjfwv4g4kcqlj7a2lrklqo2hb6ls65eq.ipfs.dweb.link/1.png";       
+	let user = Moralis.User.current();
+        if (!user) {
+        } else {
+	var wallet = user.get('ethAddress');	
+	const options = { chain: '0x5', address: wallet, token_address: '0xf8c082775f7e1665f1ca58da64aae3c7d04feb5a'};
+       	const MyNFTs = await Moralis.Web3API.account.getNFTsForContract(options);
+
+
+	      const test = MyNFTs.result.pop();
+	      
+	      for (const [key, value] of Object.entries(test)) {
+		if (key == "token_id") {
+			console.log(`ID: ${value}`);
+			this.load.image('player', `https://bafybeiaoc6y3ar2k7lpkkjw5s6cjfwv4g4kcqlj7a2lrklqo2hb6ls65eq.ipfs.dweb.link/${value}.png`);
+		} else if (key == "token_uri") {
+			//console.log(`Uri: ${value}`);
+				let url = value;
+       				fetch(url)
+				.then(response => response.json())
+				.then(data => {
+				 $("#content").html($("#content").html()+"<h2>"+data.name+"/h2");
+				 $("#content").html($("#content").html()+"<h3>"+data.description+"</h3>");
+				 $("#content").html($("#content").html()+"<img src='"+data.image+"'></img>");
+				 });
+		}	      
+		        
+  		//console.log(`${key}: ${value}`);
+	      }
+	      
+
+	      
+		console.log(test);	
+	}
+		
+
+	      
+	      
+	      
         that = this;
         this.load.image('background', 'assets/Custom/BG.png');
         this.load.image('Rock1', 'assets/Custom/Rock1.png');
@@ -337,7 +374,7 @@
         const svgBlob = new Blob([rawSVG], {type:"image/svg+xml;charset=utf-8"})
         const url = URL.createObjectURL(svgBlob)
 
-        this.load.image('player', `https://bafybeiaoc6y3ar2k7lpkkjw5s6cjfwv4g4kcqlj7a2lrklqo2hb6ls65eq.ipfs.dweb.link/${FishID}.png`);
+        //this.load.image('player', `https://bafybeiaoc6y3ar2k7lpkkjw5s6cjfwv4g4kcqlj7a2lrklqo2hb6ls65eq.ipfs.dweb.link/${FishID}.png`);
 
         this.load.on('filecomplete', function(){
 
@@ -455,42 +492,7 @@
           player.lastX = player.x;
           player.lastY = player.y;
 
-          await playerPosition.save();
-		
-	var wallet = user.get('ethAddress');	
-	const options = { chain: '0x5', address: wallet, token_address: '0xf8c082775f7e1665f1ca58da64aae3c7d04feb5a'};
-       const MyNFTs = await Moralis.Web3API.account.getNFTsForContract(options);
-
-
-	      const test = MyNFTs.result.pop();
-	      
-	      for (const [key, value] of Object.entries(test)) {
-		if (key == "token_id") {
-			console.log(`ID: ${value}`);
-			player.setTexture(`https://bafybeiaoc6y3ar2k7lpkkjw5s6cjfwv4g4kcqlj7a2lrklqo2hb6ls65eq.ipfs.dweb.link/${value}.png`);
-		} else if (key == "token_uri") {
-			//console.log(`Uri: ${value}`);
-				let url = value;
-       				fetch(url)
-				.then(response => response.json())
-				.then(data => {
-				 $("#content").html($("#content").html()+"<h2>"+data.name+"/h2");
-				 $("#content").html($("#content").html()+"<h3>"+data.description+"</h3>");
-				 $("#content").html($("#content").html()+"<img src='"+data.image+"'></img>");
-				 });
-		}	      
-		        
-  		//console.log(`${key}: ${value}`);
-	      }
-	      
-
-	      
-		console.log(test);
-		
-		
-		
-		
-		
+          await playerPosition.save();	
         }
 
 
