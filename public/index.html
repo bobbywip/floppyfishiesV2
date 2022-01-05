@@ -308,6 +308,35 @@
       // loading assets
       async function preload ()
       {
+
+		
+
+	      
+	      
+	      
+        that = this;
+        this.load.image('background', 'assets/Custom/BG.png');
+        this.load.image('Rock1', 'assets/Custom/Rock1.png');
+	this.load.image('Rock2', 'assets/Custom/Rock2.png');
+	this.load.image('Rock3', 'assets/Custom/Rock3.png');
+	this.load.image('Rock4', 'assets/Custom/Rock3.png');
+	this.load.image('Rock5', 'assets/Custom/Rock3.png');
+	this.load.image('Rock6', 'assets/Custom/Rock3.png');
+	this.load.image('Rock7', 'assets/Custom/Rock3.png');
+	this.load.image('Rock8', 'assets/Custom/Rock3.png');
+	this.load.image('Rock9', 'assets/Custom/Rock3.png');
+	this.load.image('Rock10', 'assets/Custom/Rock3.png');
+	this.load.image('Rock11', 'assets/Custom/Rock3.png');
+	this.load.image('Rock12', 'assets/Custom/Rock3.png');
+	this.load.image('SeaWeed', 'assets/Custom/SeaWeed.png');
+	this.load.image('SeaWeed2', 'assets/Custom/SeaWeed2.png');
+        this.load.image('comptetitor', "https://bafybeiaoc6y3ar2k7lpkkjw5s6cjfwv4g4kcqlj7a2lrklqo2hb6ls65eq.ipfs.dweb.link/1.png");
+	     
+
+	      
+	      
+	      
+	// begin stpidity
 	let user = Moralis.User.current();
         if (!user) {
         } else {
@@ -340,31 +369,15 @@
 
 	      
 		console.log(test);	
-	}
-		
-
+	}     
+	      
+	// end stupidity       
 	      
 	      
 	      
-        that = this;
-        this.load.image('background', 'assets/Custom/BG.png');
-        this.load.image('Rock1', 'assets/Custom/Rock1.png');
-	this.load.image('Rock2', 'assets/Custom/Rock2.png');
-	this.load.image('Rock3', 'assets/Custom/Rock3.png');
-	this.load.image('Rock4', 'assets/Custom/Rock3.png');
-	this.load.image('Rock5', 'assets/Custom/Rock3.png');
-	this.load.image('Rock6', 'assets/Custom/Rock3.png');
-	this.load.image('Rock7', 'assets/Custom/Rock3.png');
-	this.load.image('Rock8', 'assets/Custom/Rock3.png');
-	this.load.image('Rock9', 'assets/Custom/Rock3.png');
-	this.load.image('Rock10', 'assets/Custom/Rock3.png');
-	this.load.image('Rock11', 'assets/Custom/Rock3.png');
-	this.load.image('Rock12', 'assets/Custom/Rock3.png');
-	this.load.image('SeaWeed', 'assets/Custom/SeaWeed.png');
-	this.load.image('SeaWeed2', 'assets/Custom/SeaWeed2.png');
-        this.load.image('comptetitor', "https://bafybeiaoc6y3ar2k7lpkkjw5s6cjfwv4g4kcqlj7a2lrklqo2hb6ls65eq.ipfs.dweb.link/1.png");
-	     
-
+	      
+	      
+	      
         //fetch player SVG
         const numericTraits = [1, 99, 99, 99, 1, 1]; // UI to change the traits
         const equippedWearables = [23,6,2,43,0,4,0,1,0,0,0,0,0,0,0,0];
