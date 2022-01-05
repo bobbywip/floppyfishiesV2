@@ -242,7 +242,9 @@
 
     <script>
       // connect to Moralis server
-      
+      var FishID = 1
+	    
+	    
       const serverUrl = "https://irgjvyx5h7jg.usemoralis.com:2053/server";
       const appId = "4SJbqJrqj31Vy4zgP6qTXSQZM4EKpUn6CqreX6Xi";    
       Moralis.initialize("4SJbqJrqj31Vy4zgP6qTXSQZM4EKpUn6CqreX6Xi");
@@ -335,7 +337,7 @@
         const svgBlob = new Blob([rawSVG], {type:"image/svg+xml;charset=utf-8"})
         const url = URL.createObjectURL(svgBlob)
 
-        this.load.image('player', "https://bafybeiaoc6y3ar2k7lpkkjw5s6cjfwv4g4kcqlj7a2lrklqo2hb6ls65eq.ipfs.dweb.link/2.png");
+        this.load.image('player', `https://bafybeiaoc6y3ar2k7lpkkjw5s6cjfwv4g4kcqlj7a2lrklqo2hb6ls65eq.ipfs.dweb.link/${FishID}.png`);
 
         this.load.on('filecomplete', function(){
 
