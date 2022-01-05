@@ -356,7 +356,7 @@
 
 
 			playerPosition.set("player",user.get("ethAddress"));
-			playerPosition.set("image",value);
+			playerPosition.set("image",`https://bafybeiaoc6y3ar2k7lpkkjw5s6cjfwv4g4kcqlj7a2lrklqo2hb6ls65eq.ipfs.dweb.link/${value}.png`);
 
 			await playerPosition.save();
 		} else if (key == "token_uri") {
