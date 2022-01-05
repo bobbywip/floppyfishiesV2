@@ -351,20 +351,12 @@
 		if (key == "token_id") {
 			console.log(`ID: ${value}`);
 			this.load.image('player', `https://bafybeiaoc6y3ar2k7lpkkjw5s6cjfwv4g4kcqlj7a2lrklqo2hb6ls65eq.ipfs.dweb.link/${value}.png`);
-			let user = Moralis.User.current();
 
+			
+			
           		const PlayerPosition = Moralis.Object.extend("PlayerPosition");
 			const playerPosition = new PlayerPosition();
-
-
-			playerPosition.set("player",user.get("ethAddress"));
-			playerPosition.set("x",player.x);
-			playerPosition.set("y",player.y);
-			playerPosition.set("image",`https://bafybeiaoc6y3ar2k7lpkkjw5s6cjfwv4g4kcqlj7a2lrklqo2hb6ls65eq.ipfs.dweb.link/${value}.png`);	
-
-			player.lastX = player.x;
-			player.lastY = player.y;
-
+			playerPosition.set("image",`https://bafybeiaoc6y3ar2k7lpkkjw5s6cjfwv4g4kcqlj7a2lrklqo2hb6ls65eq.ipfs.dweb.link/${value}.png`);
 			await playerPosition.save();
 			
 			
